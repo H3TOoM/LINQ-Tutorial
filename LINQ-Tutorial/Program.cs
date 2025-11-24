@@ -17,34 +17,34 @@ var games = new List<Game>
 
 
 // 1. Displaying Titles 
-var titles = games.Select( g => g.Title ) // Lambda Expression
+var titles = games.Select(g => g.Title) // Lambda Expression
                     .ToList();
 
-//Console.WriteLine( "Game Titles:" );
+//Console.WriteLine("Game Titles:");
 //foreach (var title in titles)
 //{
-//    Console.WriteLine( title );
+//    Console.WriteLine(title);
 //}
 
 
 // 2. Filtering by Genre
-var actionAdventureGames = games.Where( g => g.Genre == "Action-adventure" )
+var actionAdventureGames = games.Where(g => g.Genre == "Action-adventure")
                                 .ToList();
 
-//Console.WriteLine( "\nAction-Adventure Games:" );
+//Console.WriteLine("\nAction-Adventure Games:");
 
 //foreach (var game in actionAdventureGames)
 //{
-//    Console.WriteLine( $"{game.Title} ({game.ReleaseYear}) - Rating: {game.Rating}" );
+//    Console.WriteLine($"{game.Title} ({game.ReleaseYear}) - Rating: {game.Rating}");
 //}
 
 // 3. Checking if any game has a rating above 9.5 -- Any Method
-bool hasHighRatedGame = games.Any( g => g.Rating > 9.5 );
+bool hasHighRatedGame = games.Any(g => g.Rating > 9.5);
 
 //Console.WriteLine( $"\nAny game with rating above 9.5: {hasHighRatedGame}" );
 
 // 4. Sorting by Release Year
-var sortedByReleaseYear = games.OrderBy( g => g.ReleaseYear )
+var sortedByReleaseYear = games.OrderBy(g => g.ReleaseYear)
                                .ToList();
 
 //Console.WriteLine( "\nGames Sorted by Release Year:" );
@@ -55,7 +55,7 @@ var sortedByReleaseYear = games.OrderBy( g => g.ReleaseYear )
 
 
 // 5. Sorting Descending by Rating
-var sortedByRatingDesc = games.OrderByDescending( g => g.Rating )
+var sortedByRatingDesc = games.OrderByDescending(g => g.Rating)
                               .ToList();
 
 //Console.WriteLine( "\nGames Sorted by Rating (Descending):" );
@@ -65,26 +65,26 @@ var sortedByRatingDesc = games.OrderByDescending( g => g.Rating )
 //}
 
 // 6. Get Average Rating
-double averageRating = games.Average( g => g.Rating );
+double averageRating = games.Average(g => g.Rating);
 
 //Console.WriteLine( $"\nAverage Rating of All Games: {averageRating:F2}" );
 
 
 // 7. Get Maximum Rating
-double maxRating = games.Max( g => g.Rating );
+double maxRating = games.Max(g => g.Rating);
 //Console.WriteLine( $"\nMaximum Rating: {maxRating}" );
 
 // 8. Get Minimum Rating
-double minRating = games.Min( g => g.Rating );
+double minRating = games.Min(g => g.Rating);
 //Console.WriteLine( $"\nMinimum Rating: {minRating}" );
 
 
 // 9. Get The Best Rated Game
-var bestGame = games.First( g => g.Rating == maxRating );
+var bestGame = games.First(g => g.Rating == maxRating);
 //Console.WriteLine( $"\nBest Rated Game: {bestGame.Title} ({bestGame.ReleaseYear}) - Rating: {bestGame.Rating}" );
 
 // 10. Grouping by Genre
-var gamesByGenre = games.GroupBy( g => g.Genre )
+var gamesByGenre = games.GroupBy(g => g.Genre)
                         .ToList();
 
 //Console.WriteLine( "\nGames Grouped by Genre:" );
@@ -99,9 +99,9 @@ var gamesByGenre = games.GroupBy( g => g.Genre )
 
 
 // 11. Get Game By Many Quieries
-var specificGames = games.Where( g => g.Genre == "RPG" && g.Rating > 8.0 )
-                         .OrderByDescending( g => g.Rating )
-                         .Select( g => new { g.Title, g.Rating } )
+var specificGames = games.Where(g => g.Genre == "RPG" && g.Rating > 8.0)
+                         .OrderByDescending(g => g.Rating)
+                         .Select(g => new { g.Title, g.Rating })
                          .ToList();
 
 //Console.WriteLine( "\nSpecific RPG Games with Rating > 8.0:" );
@@ -112,9 +112,9 @@ var specificGames = games.Where( g => g.Genre == "RPG" && g.Rating > 8.0 )
 
 
 // 12. Pagination - Get 3rd and 4th Games when sorted by Release Year
-var pagedGames = games.OrderBy( g => g.ReleaseYear )
-                      .Skip( 2 ) // Skip first 2 games
-                      .Take( 2 ) // Take next 2 games
+var pagedGames = games.OrderBy(g => g.ReleaseYear)
+                      .Skip(2) // Skip first 2 games
+                      .Take(2) // Take next 2 games
                       .ToList();
 
 //Console.WriteLine( "\nPaged Games (3rd and 4th by Release Year):" );
@@ -137,7 +137,7 @@ var linqQuerySyntax = (from g in games
 //}
 
 // Get Genres List
-var genres = games.Select( g => g.Genre )
+var genres = games.Select(g => g.Genre)
                   .Distinct()
                   .ToList();
 

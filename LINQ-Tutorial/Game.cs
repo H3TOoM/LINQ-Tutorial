@@ -14,7 +14,6 @@ namespace LINQ_Tutorial
         public string Genre { get; set; }
 
         public double ReleaseYear { get; set; }
-
         public double Rating { get; set; }
     }
 }
